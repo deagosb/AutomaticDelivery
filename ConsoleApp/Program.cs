@@ -35,8 +35,12 @@ namespace ConsoleApp
                         // Get substring with the file number 
                         string fileNumber = filePath.Substring(filePath.Length - 6, 2);
 
-                        // Process the file
-                        ProcessFile(filePath, fileNumber);
+                        // Validate the number of files against the number of drones available
+                        if (Convert.ToInt32(fileNumber) <= Global.Maximum_Number_Of_Drones)
+                        {
+                            // Process the file
+                            ProcessFile(filePath, fileNumber);
+                        }                        
                     }
 
                 }
